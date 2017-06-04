@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  //h1= title
+  //p Welcome to #{title}
+  form(action='/index/subir',method='post', enctype='multipart/form-data')
+    input(id='txtsubir',type='file',value='',name='txtsubir')
+    input(type='submit',value='Subir',data-transition='fade', data-theme='c') 
+
+  audio(id="playlist" src="", preload="auto") 
+
+  each item in list
+    p=item
+    a(href="#", id="/playlist/" + item, OnClick='btnescuchar(this)') Reproducir
+    br
+    a(href="#", id="/playlist/" + item, OnClick='btnpause(this)') Detener
+    br
+    a(href='/playlist/'+item+'', id="/playlist/" + item, download) Descargar
